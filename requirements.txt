@@ -1,0 +1,4 @@
+tqdm==4.66.1
+torch==2.0.1
+transformers==4.33.2
+Flask==2.3.3
