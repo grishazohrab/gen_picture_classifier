@@ -5,7 +5,7 @@ from transformers import BertTokenizer
 
 from bert_classification import BertClassifier
 from data_processing import remove_name
-from config import MODEL_PATH, CONVERSATION_THRESHOLD
+from config import MODEL_PATH, CONVERSATION_THRESHOLD, TAGS
 
 
 class ModelRunner:
@@ -38,3 +38,12 @@ class ModelRunner:
         output = self.model(input_id, mask)
 
         return output.argmax(dim=1)
+
+    @staticmethod
+    def assign_tags(self, text):
+        tags = []
+        for name, its in TAGS.items():
+            for it in its:
+                if it in text:
+                    tags.append(it)
+        return tags
